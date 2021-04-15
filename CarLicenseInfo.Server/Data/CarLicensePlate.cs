@@ -1,8 +1,8 @@
 using System;
 
-namespace CarLicensePlate.Server.Data
+namespace CarLicenseInfo.Server.Data
 {
-    public class CarLicensePlate {
+    public class CarLicenseInfo {
         public int Id { get; set; }
 
         public string LicensePlate { get; set; }

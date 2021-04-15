@@ -1,22 +1,22 @@
 syntax = "proto3";
 
-option csharp_namespace = "CarLicensePlate.Server";
+option csharp_namespace = "CarLicenseInfo.Server";
 
-package CarLicensePlate;
+package CarLicenseInfo;
 
-// The CarLicensePlate service definition.
-service CarLicensePlate {
+// The CarLicenseInfo service definition.
+service CarLicenseInfo {
   // Request Info to a car license plate
-  rpc GetCarLicensePlateInfo (CarLicensePlateRequest) returns (CarLicensePlateResponse);
+  rpc GetCarLicenseInfoInfo (CarLicenseInfoRequest) returns (CarLicenseInfoResponse);
 }
 
 // The request message containing the car license plate
-message CarLicensePlateRequest {
+message CarLicenseInfoRequest {
   string licensePlate = 1;
 }
 
 // The response message containing the car license plate info.
-message CarLicensePlateResponse {
+message CarLicenseInfoResponse {
   string licensePlate = 1;
   string cityRegion = 2;
   string derivedFrom = 3;

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLicensePlate.Server", "CarLicensePlate.Server\CarLicensePlate.Server.csproj", "{21405740-887B-49D2-8D09-6DC4F36ACC61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLicenseInfo.Server", "CarLicenseInfo.Server\CarLicenseInfo.Server.csproj", "{21405740-887B-49D2-8D09-6DC4F36ACC61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

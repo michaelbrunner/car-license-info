@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Hosting;
 
-namespace CarLicensePlate.Server
+namespace CarLicenseInfo.Server
 {
     public class Program
     {

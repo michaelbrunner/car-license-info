@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using CarLicensePlate.Server.Data;
+using CarLicenseInfo.Server.Data;
 
-namespace CarLicensePlate.Server
+namespace CarLicenseInfo.Server
 {
     public class Startup
     {
@@ -47,7 +47,7 @@ namespace CarLicensePlate.Server
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<CarLicensePlateService>();
+                endpoints.MapGrpcService<CarLicenseInfoService>();
 
                 endpoints.MapGet("/", async context =>
                 {

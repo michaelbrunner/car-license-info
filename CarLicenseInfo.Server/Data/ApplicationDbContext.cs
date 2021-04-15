@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace CarLicensePlate.Server.Data
+namespace CarLicenseInfo.Server.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -10,10 +10,10 @@ namespace CarLicensePlate.Server.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CarLicensePlate>()
+            modelBuilder.Entity<CarLicenseInfo>()
                 .HasKey(x => x.Id);
         }
 
-        public DbSet<CarLicensePlate> CarLicensePlate { get; set; }
+        public DbSet<CarLicenseInfo> CarLicenseInfo { get; set; }
     }   
 }
