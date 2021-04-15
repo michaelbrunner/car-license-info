@@ -28,6 +28,14 @@ namespace CarLicenseInfo.Server
         {
             services.AddGrpc();
 
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>  
+            {  
+                builder.AllowAnyOrigin()  
+                       .AllowAnyMethod()  
+                       .AllowAnyHeader()  
+                      .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");  
+            }));
+
             services.AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseSqlite(
@@ -45,9 +53,11 @@ namespace CarLicenseInfo.Server
 
             app.UseRouting();
 
+            app.UseGrpcWeb();  
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<CarLicenseInfoService>();
+                endpoints.MapGrpcService<CarLicenseInfoService>().EnableGrpcWeb().RequireCors("AllowAll");
 
                 endpoints.MapGet("/", async context =>
                 {
