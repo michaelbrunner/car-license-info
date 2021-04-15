@@ -7,7 +7,7 @@ package CarLicenseInfo;
 // The CarLicenseInfo service definition.
 service CarLicenseInfo {
   // Request Info to a car license plate
-  rpc GetCarLicenseInfoInfo (CarLicenseInfoRequest) returns (CarLicenseInfoResponse);
+  rpc GetCarLicenseInfo (CarLicenseInfoRequest) returns (CarLicenseInfoResponse);
 }
 
 // The request message containing the car license plate
