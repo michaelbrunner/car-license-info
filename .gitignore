@@ -14,3 +14,6 @@ bld/
 
 # VisualStudio Code
 .vscode/
+
+# Visual Studio
+.vs
