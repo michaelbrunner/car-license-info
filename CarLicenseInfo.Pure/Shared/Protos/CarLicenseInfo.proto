@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "CarLicenseInfo.Server";
+option csharp_namespace = "CarLicenseInfo.Pure.Shared";
 
 package CarLicenseInfo;
 

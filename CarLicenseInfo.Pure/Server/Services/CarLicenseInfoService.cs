@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-using CarLicenseInfo.Server.Data;
+using CarLicenseInfo.Pure.Shared;
+using CarLicenseInfo.Pure.Server.Data;
 
-namespace CarLicenseInfo.Server
+namespace CarLicenseInfo.Pure.Server.Services
 {
-    public class CarLicenseInfoService : CarLicenseInfo.CarLicenseInfoBase
+    public class CarLicenseInfoService : CarLicenseInfo.Pure.Shared.CarLicenseInfo.CarLicenseInfoBase
     {
         private readonly ILogger<CarLicenseInfoService> _logger;
         private readonly ApplicationDbContext _dbContext;

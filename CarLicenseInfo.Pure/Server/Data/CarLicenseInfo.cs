@@ -1,6 +1,6 @@
 using System;
 
-namespace CarLicenseInfo.Server.Data
+namespace CarLicenseInfo.Pure.Server.Data
 {
     public class CarLicenseInfo {
         public int Id { get; set; }

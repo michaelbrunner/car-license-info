@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace CarLicenseInfo.Server.Data
+namespace CarLicenseInfo.Pure.Server.Data
 {
     public class ApplicationDbContext : DbContext
     {

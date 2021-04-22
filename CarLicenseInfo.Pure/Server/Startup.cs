@@ -6,6 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using CarLicenseInfo.Pure.Shared;
+using CarLicenseInfo.Pure.Server.Services;
+using CarLicenseInfo.Pure.Server.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarLicenseInfo.Pure.Server
 {
@@ -23,8 +27,24 @@ namespace CarLicenseInfo.Pure.Server
         public void ConfigureServices(IServiceCollection services)
         {
 
+            // add gRPC service to enbale gRPC-Wen amd depenency injection
+            services.AddGrpc();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                      .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
+            }));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlite(
+                    Configuration["ConnectionStrings:DefaultConnection"]);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,8 +68,13 @@ namespace CarLicenseInfo.Pure.Server
 
             app.UseRouting();
 
+            // must be added after UseRouting and before UseEndpoints 
+            app.UseGrpcWeb();
+
             app.UseEndpoints(endpoints =>
             {
+                // map to and register the gRPC service
+                endpoints.MapGrpcService<CarLicenseInfoService>().EnableGrpcWeb().RequireCors("AllowAll");
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
