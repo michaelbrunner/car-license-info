@@ -2,10 +2,10 @@ syntax = "proto3";
 
 option csharp_namespace = "CarLicenseInfo.Pure.Shared";
 
-package CarLicenseInfo;
+package carlicenseinfo;
 
 // The CarLicenseInfo service definition.
-service CarLicenseInfo {
+service CarLicenseInfoGrpc {
   // Request Info to a car license plate
   rpc GetCarLicenseInfo (CarLicenseInfoRequest) returns (CarLicenseInfoResponse);
 }

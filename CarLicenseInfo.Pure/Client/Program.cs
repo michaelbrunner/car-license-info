@@ -23,7 +23,7 @@ namespace CarLicenseInfo.Pure.Client
                 var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
                 var baseUri = services.GetRequiredService<NavigationManager>().BaseUri;
                 var channel = GrpcChannel.ForAddress(baseUri, new GrpcChannelOptions { HttpClient = httpClient });
-                return new Pure.Shared.CarLicenseInfo.CarLicenseInfoClient(channel);
+                return new CarLicenseInfo.Pure.Shared.CarLicenseInfoGrpc.CarLicenseInfoGrpcClient(channel);
             });
 
             await builder.Build().RunAsync();

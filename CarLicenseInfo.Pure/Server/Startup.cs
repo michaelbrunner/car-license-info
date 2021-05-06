@@ -29,6 +29,10 @@ namespace CarLicenseInfo.Pure.Server
 
             // add gRPC service to enbale gRPC-Wen amd depenency injection
             services.AddGrpc();
+            //services.AddGrpc(options =>
+            //{
+            //    options.EnableDetailedErrors = true;
+            //});
             services.AddControllersWithViews();
             services.AddRazorPages();
 

@@ -1,6 +1,6 @@
 ﻿@page "/fetchdata"
-@using CarLicenseInfo.Pure.Shared
-@inject Pure.Shared.CarLicenseInfo.CarLicenseInfoClient CarLicenseInfoClient
+@using CarLicenseInfo.Pure.Shared;
+@inject CarLicenseInfoGrpc.CarLicenseInfoGrpcClient CarLicenseInfoClient
 
 <h1>KFZ Kennzeichen Abfrage</h1>
 
@@ -16,7 +16,7 @@
 </EditForm>
 
 @code {
-    private CarLicenseInfoRequest request;
+    private CarLicenseInfoRequest request = new CarLicenseInfoRequest();
     private CarLicenseInfoResponse response;
 
     private async Task GetCarLicenseInfo()
