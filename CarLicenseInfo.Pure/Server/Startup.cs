@@ -75,6 +75,8 @@ namespace CarLicenseInfo.Pure.Server
             // must be added after UseRouting and before UseEndpoints 
             app.UseGrpcWeb();
 
+            app.UseCors();
+
             app.UseEndpoints(endpoints =>
             {
                 // map to and register the gRPC service

@@ -21,10 +21,14 @@ namespace CarLicenseInfo.Pure.Server.Services
             _dbContext = dbContext;
         }
 
-        public override Task<CarLicenseInfoResponse> GetCarLicenseInfo(CarLicenseInfoRequest request, ServerCallContext context)
+        public override Task<CarLicenseInfoResponse> GetCarLicenseInfo(CarLicenseInfoRequest request, ServerCallContext context) 
         {
             var carLicenseInfoData = _dbContext.CarLicenseInfo.SingleOrDefault(x => x.LicensePlate == request.LicensePlate);
 
+            if (carLicenseInfoData == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, "No car license found"));
+            }
             return Task.FromResult<CarLicenseInfoResponse>(new CarLicenseInfoResponse 
             {
                 LicensePlate = carLicenseInfoData?.LicensePlate,
