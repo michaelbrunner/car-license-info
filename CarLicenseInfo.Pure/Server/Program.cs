@@ -33,13 +33,5 @@ namespace CarLicenseInfo.Pure.Server
                     });
                     webBuilder.UseStartup<Startup>();
                 });
-
-        /*
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
-        */
     }
 }

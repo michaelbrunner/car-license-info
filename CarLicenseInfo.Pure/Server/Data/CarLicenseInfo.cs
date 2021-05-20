@@ -2,6 +2,9 @@ using System;
 
 namespace CarLicenseInfo.Pure.Server.Data
 {
+    /// <summary>
+    /// CarLicenseInfo Entity implementation
+    /// </summary>
     public class CarLicenseInfo {
         public int Id { get; set; }
 

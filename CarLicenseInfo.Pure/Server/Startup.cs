@@ -27,7 +27,7 @@ namespace CarLicenseInfo.Pure.Server
         public void ConfigureServices(IServiceCollection services)
         {
 
-            // add gRPC service to enbale gRPC-Wen amd depenency injection
+            // add gRPC service to enable gRPC-Web and dependency injection
             services.AddGrpc();
             //services.AddGrpc(options =>
             //{

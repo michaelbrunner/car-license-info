@@ -3,13 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLicenseInfo.Server", "CarLicenseInfo.Server\CarLicenseInfo.Server.csproj", "{21405740-887B-49D2-8D09-6DC4F36ACC61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarLicenseInfo.Pure.Server", "CarLicenseInfo.Pure\Server\CarLicenseInfo.Pure.Server.csproj", "{396376B3-C345-4CD5-B0BD-BC8782976817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLicenseInfo.Pure.Server", "CarLicenseInfo.Pure\Server\CarLicenseInfo.Pure.Server.csproj", "{396376B3-C345-4CD5-B0BD-BC8782976817}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarLicenseInfo.Pure.Client", "CarLicenseInfo.Pure\Client\CarLicenseInfo.Pure.Client.csproj", "{1C1438B2-D283-48FC-A7CE-478DAD1EEBC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLicenseInfo.Pure.Client", "CarLicenseInfo.Pure\Client\CarLicenseInfo.Pure.Client.csproj", "{1C1438B2-D283-48FC-A7CE-478DAD1EEBC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarLicenseInfo.Pure.Shared", "CarLicenseInfo.Pure\Shared\CarLicenseInfo.Pure.Shared.csproj", "{165E428D-9C71-45E7-805E-D4C689164BEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarLicenseInfo.Pure.Shared", "CarLicenseInfo.Pure\Shared\CarLicenseInfo.Pure.Shared.csproj", "{165E428D-9C71-45E7-805E-D4C689164BEB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE12A2E7-F5CC-4B27-979C-7B94E1CD639C}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,22 +23,7 @@ Global
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Debug|x64.Build.0 = Debug|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Debug|x86.Build.0 = Debug|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Release|x64.ActiveCfg = Release|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Release|x64.Build.0 = Release|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Release|x86.ActiveCfg = Release|Any CPU
-		{21405740-887B-49D2-8D09-6DC4F36ACC61}.Release|x86.Build.0 = Release|Any CPU
 		{396376B3-C345-4CD5-B0BD-BC8782976817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{396376B3-C345-4CD5-B0BD-BC8782976817}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{396376B3-C345-4CD5-B0BD-BC8782976817}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -72,5 +60,11 @@ Global
 		{165E428D-9C71-45E7-805E-D4C689164BEB}.Release|x64.Build.0 = Release|Any CPU
 		{165E428D-9C71-45E7-805E-D4C689164BEB}.Release|x86.ActiveCfg = Release|Any CPU
 		{165E428D-9C71-45E7-805E-D4C689164BEB}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFB94C5E-9F62-47D7-BFB2-AB5CDB747335}
 	EndGlobalSection
 EndGlobal

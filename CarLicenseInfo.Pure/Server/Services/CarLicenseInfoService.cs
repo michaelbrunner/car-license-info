@@ -10,6 +10,9 @@ using CarLicenseInfo.Pure.Shared;
 
 namespace CarLicenseInfo.Pure.Server.Services
 {
+    /// <summary>
+    /// Implements the CarLicenseInfo Proto API.
+    /// </summary>
     public class CarLicenseInfoService : CarLicenseInfoGrpc.CarLicenseInfoGrpcBase
     { 
         private readonly ILogger<CarLicenseInfoService> _logger;
@@ -21,6 +24,12 @@ namespace CarLicenseInfo.Pure.Server.Services
             _dbContext = dbContext;
         }
 
+        /// <summary>
+        /// Queries the database for the given license plate.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Task<CarLicenseInfoResponse> GetCarLicenseInfo(CarLicenseInfoRequest request, ServerCallContext context) 
         {
             var carLicenseInfoData = _dbContext.CarLicenseInfo.SingleOrDefault(x => x.LicensePlate == request.LicensePlate);
