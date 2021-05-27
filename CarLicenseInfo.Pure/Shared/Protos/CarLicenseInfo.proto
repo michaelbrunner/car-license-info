@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "CarLicenseInfo.Pure.Shared";
+
+package carlicenseinfo;
+
+// The CarLicenseInfo service definition.
+service CarLicenseInfoGrpc {
+  // Request Info to a car license plate
+  rpc GetCarLicenseInfo (CarLicenseInfoRequest) returns (CarLicenseInfoResponse);
+}
+
+// The request message containing the car license plate
+message CarLicenseInfoRequest {
+  string licensePlate = 1;
+}
+
+// The response message containing the car license plate info.
+message CarLicenseInfoResponse {
+  string licensePlate = 1;
+  string cityRegion = 2;
+  string derivedFrom = 3;
+  string county = 4;
+}

@@ -1,0 +1,75 @@
+﻿@page "/pureGRPC"
+@using Grpc.Core;
+@using CarLicenseInfo.Pure.Shared;
+@inject CarLicenseInfoGrpc.CarLicenseInfoGrpcClient CarLicenseInfoClient
+
+<h1>KFZ Kennzeichen Abfrage</h1>
+
+<p>Es können die Landkreise/Städte zu einem KFZ-Kennzeichen gesucht werden.</p>
+
+<EditForm Model="@request" OnValidSubmit="@GetCarLicenseInfo">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="licensePlate" @bind-Value="request.LicensePlate" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+<p></p>
+<div hidden="@hideResult">
+    <h2>Ergebnis</h2>
+    <p>
+        <table class="table">
+            <tr>
+                <td>Kennzeichen</td>
+                <td>@response.LicensePlate</td>
+            </tr>
+            <tr>
+                <td>Stadt / Region</td>
+                <td>@response.CityRegion</td>
+            </tr>
+            <tr>
+                <td>Abgeleitet von</td>
+                <td>@response.DerivedFrom</td>
+            </tr>
+            <tr>
+                <td>Bundesland</td>
+                <td>@response.County</td>
+            </tr>
+        </table>
+    </p>
+</div>
+<div hidden="@hideError">
+    <h2 class="text-danger">@errorMessage</h2>
+</div>
+
+@code {
+    private bool hideResult { get; set; } = true;
+    private bool hideError { get; set; } = true;
+    private CarLicenseInfoRequest request = new CarLicenseInfoRequest();
+    private CarLicenseInfoResponse response = new CarLicenseInfoResponse();
+    private string errorMessage = "";
+
+    private async Task GetCarLicenseInfo()
+    {
+        try
+        {
+            response = await CarLicenseInfoClient.GetCarLicenseInfoAsync(request);
+            hideResult = false;
+            hideError = true;
+        }
+        catch (RpcException ex) when (ex.StatusCode == StatusCode.NotFound)
+        {
+            errorMessage = "Es konnten keine Einträge zu diesem Kennzeichen gefunden werden!";
+            hideResult = true;
+            hideError = false;
+        }
+        catch (RpcException ex)
+        {
+            errorMessage = "Es trat ein Fehler auf: " + ex.Message;
+            hideResult = true;
+            hideError = false;
+
+        }
+    }
+}
