@@ -1,29 +1,27 @@
-This is a simple car license info application to demonstrate/try an gRpc communication using a Blazor Webassembly App as client.
 
-# Setup
-```bash
-mkdir carLicenseInfo
-cd carLicenseInfo
+# Demo Application for using gRPC communication in a Blazor WebAssembly Application
 
-# create a new solution file
-dotnet new sln -n CarLicenseInfo
+The goal of this simple application is to test and learn about gRPC and touching also Blazor WebAssembly.
 
-## Create Server
-# create the gRPC project
-dotnet new grpc -n CarLicenseInfo.Server -o CarLicenseInfo.Server
+The user can query german license plates, but only the part of the City or Region.
+The data is stored in an SqlLite File DB. The Blazor WebAssembly Frontend communicates with the backend, using gRPC Web.
 
-# add the project to the solution
-dotnet sln add CarLicenseInfo.Server
-```
 
-## Create Blazor WebAssembly Client
-dotnet new blazorwasm -o CarLicenseInfo.Client              
+## Tech Stack
 
-# add the project to the solution
-dotnet sln add CarLicenseInfo.Client
+**Client:** 
+* Blazor WebAssembly 
+* Grpc.Net.Client.Web
+* Microsoft .Net Core
+  
+**Server:**
+* Microsoft .Net Core
+* Grpc.AspNetCore
+* Grpc.AspNetCore.Web
 
-# Implementation
-## Configure gRPC-Web
-- Add nuget package Grpc.AspNetCore.Web to the server project
-- Configure to use gRPC Web and enable gRTPC Web on the endpoints
-- Configure CORS for gRPC
+**Grpc:**
+* Pure gRPC implementation with PROTO files
+  
+## Source of data
+
+The car license information is taken from [Wikipedia](https://de.wikipedia.org/wiki/Liste_der_Kfz-Kennzeichen_in_Deutschland)
